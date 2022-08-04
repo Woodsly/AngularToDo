@@ -1,0 +1,19 @@
+<div class="toDoContainer">
+  <div *ngFor="let t of ToDoList; index as i" class="list">
+    <p>
+      {{ i + 1 }}. {{ t.Task }}
+      <button *ngIf="t.Completed == false" (click)="complete(i)">
+        Click to finish
+      </button>
+    </p>
+  </div>
+</div>
+
+<form #toDoForm="ngForm" (ngSubmit)="addTask(toDoForm)">
+  <label for="task">Add a task: </label>
+  <input name="toDo" id="task" ngModel />
+  <!-- ngmodel tells program that user input will be a variable -->
+  <!-- "name" is what the variable will be named -->
+  <!-- for and id link the label and input -->
+  <button>Add to tasks</button>
+</form>
