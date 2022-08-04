@@ -1,8 +1,8 @@
 <div class="toDoContainer">
   <div *ngFor="let t of ToDoList; index as i" class="list">
-    <p>
+    <p [ngClass]="t.Completed ? 'strike' : ''">
       {{ i + 1 }}. {{ t.Task }}
-      <button *ngIf="t.Completed == false" (click)="complete(i)">
+      <button *ngIf="!t.Completed" (click)="complete(i)">
         Click to finish
       </button>
     </p>
